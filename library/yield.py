@@ -33,7 +33,13 @@ def bond_current_yield_calc(bond_len, coupon_per, bond_price, par_val, len_time=
         return 'Incorrect period length description'
     
     # adjust fields based on length of bond period
+<<<<<<< Updated upstream
     period = np.where(len_time.lower()=='semiannual', 2, 1)
+=======
+    p1 = np.where(len_time.lower()=='semiannual', np.divide(12.0, 6.0), 0.0)
+    p2 = np.where(len_time.lower()=='annual', np.divide(12.0, 12.0), 0.0)
+    period = np.add(p1, p2)
+>>>>>>> Stashed changes
     coupon_per = np.multiply(coupon_per, period)
     
     # adjust for given coupon rate format
